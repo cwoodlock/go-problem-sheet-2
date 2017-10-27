@@ -1,4 +1,4 @@
-# Go-problem-sheet-02#
+# Go-problem-sheet-02
 This is a web application built using go for data representation and querying.
 It is supposed to be a guessing game that selects a number between 1 and 20 and the user tries to guess it.
 
@@ -12,13 +12,12 @@ I am Colm Woodlock, student number G00341460 and this is my submission.
  
     go run filename.go	
 
-##Testing
+## Testing
 Since this is a web application you will be able to see the result at htttp://localhost:8080
 
-####cURL
+### cURL
 
- cURL is also an option to see the code in action, simply download
-    cURL here : https://curl.haxx.se/download.html
+ cURL is also an option to see the code in action, simply download cURL here : https://curl.haxx.se/download.html
     
  
  Then run the command : curl -I http://localhost:8080
