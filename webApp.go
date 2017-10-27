@@ -1,25 +1,19 @@
-//Web application in golanf problem sheet 2
+//Web application in golang problem sheet 2
 //Author: Colm Woodlock
 //Student Number: G00341460
+//Adapted from http://idealogylabs.com/blog/golang/2015/07/24/serving-static-files-with-golang-gorilla-mux.html
 
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 )
 
 func main() {
-	//Main that starts a web application on port 8080
-	http.HandleFunc("/", requestHandler)
-	http.ListenAndServe(":8080", nil)
-}
+	//This will serve the page using bootstrap to 127.0.0.1:8080/guess
+	index := http.StripPrefix("/guess", http.FileServer(http.Dir("index/")))
+	http.Handle("/guess", index)
 
-//This prints Guessing game on tthe page 127.0.0.1:8080
-func requestHandler(w http.ResponseWriter, r *http.Request) {
-	//this ensures that the website reads in the text as HTML
-	w.Header().Set("Content-Type", "text/html")
-	//Added h1 tags
-	fmt.Fprintf(w, "<h1>Guessing Game</h1>")
-
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
