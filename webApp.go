@@ -17,5 +17,9 @@ func main() {
 
 //This prints Guessing game on tthe page 127.0.0.1:8080
 func requestHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Guessing game")
+	//this ensures that the website reads in the text as HTML
+	w.Header().Set("Content-Type", "text/html")
+	//Added h1 tags
+	fmt.Fprintf(w, "<h1>Guessing Game</h1>")
+
 }
